@@ -16,6 +16,24 @@ module.exports = {
         exclude: /node_modules/,
         use: [{ loader: 'babel-loader' }],
       },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(?:png|jpe?g|ico|svg|gif)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/images/[name].[ext]',
+        },
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|otf)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[name].[ext]',
+        },
+      },
     ],
   },
   plugins: [
